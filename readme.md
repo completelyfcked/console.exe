@@ -7,11 +7,11 @@ Since it's a executable a lot of things can happen behind the scenes, like:
 - Cookie logger
 - Password stealer
 - IP logger
+<br/>
 We don't like them too!
 We have made all requests to the outside obvious
 ### Lines that access the web (source/index.js)
-- 62
-- 101
+- 28
 ### Sites being accessed
 - http://cnft.server.rubendb.nl
 
