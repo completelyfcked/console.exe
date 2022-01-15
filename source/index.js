@@ -177,4 +177,6 @@ function home() {
     var trail = "."
     var color = term.brightWhite
     var welcomeMessage = ""; var date = new Date().getHours(); if (date < 12) { welcomeMessage = "Goodmorning, " + sessionStorage.username } else if (date < 16) { welcomeMessage = "Good afternoon, " + sessionStorage.username } else { welcomeMessage = "Good evening, " + sessionStorage.username }; welcomeMessage = welcomeMessage + trail; color(welcomeMessage)
+
+    // hi
 }
