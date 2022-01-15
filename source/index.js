@@ -148,7 +148,7 @@ function login2(res) {
                         } else {
                             if (!response.data.toString().startsWith('true')) {
                                 term.brightRed("\nFailed to authenticate\n\n")
-                                term.brightWhite("Try a different login method at next start")
+                                term.brightWhite("Contact "); term.brightBlue('completelyfcked#0001'); term.brightWhite(' to resolve/report this issue.')
                             } else {
                                 term.brightGreen("\nAuthenticated")
 
@@ -177,6 +177,4 @@ function home() {
     var trail = "."
     var color = term.brightWhite
     var welcomeMessage = ""; var date = new Date().getHours(); if (date < 12) { welcomeMessage = "Goodmorning, " + sessionStorage.username } else if (date < 16) { welcomeMessage = "Good afternoon, " + sessionStorage.username } else { welcomeMessage = "Good evening, " + sessionStorage.username }; welcomeMessage = welcomeMessage + trail; color(welcomeMessage)
-
-    // hi
 }
