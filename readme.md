@@ -19,6 +19,7 @@ We have made all requests to the outside obvious
 - Only tested on Node v16
 ### Steps
 - Have [pkg](https://www.npmjs.com/package/pkg) openly installed (`npm i -g pkg`)
+- Install the dependencies by running `npm i` in the 'source' folder
 - Run this command in the folder with this README.md
 `pkg source/package.json`
 If you're having trouble, google it!
