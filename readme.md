@@ -16,7 +16,7 @@ We have made all requests to the outside obvious
 ## Building
 - Only tested on Node v16
 ### Steps
-- Have "pkg" openly installed (`npm i -g pkg`)
+- Have [pkg](https://www.npmjs.com/package/pkg) openly installed (`npm i -g pkg`)
 - Run this command in the folder with this README.md
 `pkg source/package.json`
 If you're having trouble, google it!
