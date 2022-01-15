@@ -1,7 +1,7 @@
 # Console NFT Executable
 
 ## Why is it open source?
-Since it's a executable a lot of things can happen behind the scenes, like;
+Since it's a executable a lot of things can happen behind the scenes, like:
 - Cookie logger
 - Password stealer
 - IP logger
