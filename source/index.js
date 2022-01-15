@@ -1,7 +1,6 @@
 const axios = require("axios").default // Requests
 const prompt = require("prompt") // Questions
 var term = require("terminal-kit").terminal // Console Markup & MOre
-const { EventEmitter } = require("events"); var local = new EventEmitter()
 
 process.title = "console.exe"
 login1()

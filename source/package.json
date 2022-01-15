@@ -1,8 +1,9 @@
 {
   "name": "console.exe",
   "version": "1.0.0",
-  "description": "",
+  "description": "A speciality to Console NFT",
   "main": "index.js",
+  "bin": "./index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,5 +14,10 @@
     "events": "^3.3.0",
     "prompt": "^1.2.1",
     "terminal-kit": "^2.3.0"
+  },
+  "pkg": {
+    "assets": "node_modules/terminal-kit/**/*",
+    "targets": [ "node16-linux-x64", "node16-macos-x64", "node16-win-x64" ],
+    "outputPath": "../build/"
   }
 }
