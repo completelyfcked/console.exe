@@ -1,4 +1,6 @@
-# Console NFT Executable
+# console.exe
+## Installation
+*Not implemented yet*
 
 ## Why is it open source?
 Since it's a executable a lot of things can happen behind the scenes, like:
