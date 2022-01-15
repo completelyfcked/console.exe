@@ -1,0 +1,17 @@
+{
+  "name": "console.exe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "completelyfcked#0001",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "events": "^3.3.0",
+    "prompt": "^1.2.1",
+    "terminal-kit": "^2.3.0"
+  }
+}
