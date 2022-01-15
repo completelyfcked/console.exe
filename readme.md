@@ -20,4 +20,4 @@ We have made all requests to the outside obvious
 - Run this command in the folder with this README.md
 `pkg source/package.json`
 If you're having trouble, google it!
-- Executables for: Linux, Mac, Windows would appear in the "build" folder
+- Executables for: Linux, Mac, Windows would appear in the same folder you executed the command in

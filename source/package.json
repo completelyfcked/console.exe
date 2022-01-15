@@ -17,7 +17,6 @@
   },
   "pkg": {
     "assets": "node_modules/terminal-kit/**/*",
-    "targets": [ "node16-linux-x64", "node16-macos-x64", "node16-win-x64" ],
-    "outputPath": "../build/"
+    "targets": [ "node16-linux-x64", "node16-macos-x64", "node16-win-x64" ]
   }
 }
