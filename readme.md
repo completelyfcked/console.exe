@@ -11,7 +11,7 @@ We have made all requests to the outside obvious
 - 62
 - 101
 ### Sites being accessed
-- https://cnft.server.rubendb.nl
+- http://cnft.server.rubendb.nl
 
 ## Building
 - Only tested on Node v16
