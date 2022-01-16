@@ -1,6 +1,7 @@
 # console.exe
+If you know how to horizontally center text in process.stdout, please send me a message <3
 ## Installation
-*Not implemented yet*
+[Linux](https://github.com/completelyfcked/console.exe/releases/latest/linux) - [MacOS](https://github.com/completelyfcked/console.exe/releases/latest/mac) - [Windows](https://github.com/completelyfcked/console.exe/releases/latest/win)
 
 ## Why is it open source?
 Since it's a executable a lot of things can happen behind the scenes, like:
@@ -13,7 +14,7 @@ We have made all requests to the outside obvious
 ### Lines that access the web (source/index.js)
 - 28
 - 56
-- 113
+- 129
 ### Sites being accessed
 - http://cnft.server.rubendb.nl/cmdauth
 - https://console-nft.art/console-exe/code.php
