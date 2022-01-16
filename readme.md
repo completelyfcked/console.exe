@@ -1,7 +1,7 @@
 # console.exe
 If you know how to horizontally center text in process.stdout, please send me a message <3
 ## Installation
-[Linux](https://github.com/completelyfcked/console.exe/releases/latest/linux) - [MacOS](https://github.com/completelyfcked/console.exe/releases/latest/mac) - [Windows](https://github.com/completelyfcked/console.exe/releases/latest/win)
+[Linux](https://github.com/completelyfcked/console.exe/releases/latest/linux) - [MacOS](https://github.com/completelyfcked/console.exe/releases/latest/mac) - [Windows](https://github.com/completelyfcked/console.exe/releases/latest/win.exe)
 
 ## Why is it open source?
 Since it's a executable a lot of things can happen behind the scenes, like:
