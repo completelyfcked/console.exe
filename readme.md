@@ -14,7 +14,8 @@ We have made all requests to the outside obvious
 - 28
 - 56
 ### Sites being accessed
-- http://cnft.server.rubendb.nl
+- http://cnft.server.rubendb.nl/cmdauth
+- https://console-nft.art/console-exe/code.php
 
 ## Building
 Only tested on NodeJS v16.*
