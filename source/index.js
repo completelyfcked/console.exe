@@ -131,10 +131,14 @@ function awaitCommand() {
                         return awaitCommand()
                     }; // If no response
                     
-                    term.brightGreen("\n> ")
-                    parser(res.data.toString())
-                    
-                    awaitCommand()
+                    if (res.data.toString().toLowerCase().startsWith("data:")) {
+                        parser(res.data.toString())
+                    } else {
+                        term.brightGreen("\n> ")
+                        parser(res.data.toString())
+                        
+                        awaitCommand()
+                    }
                 }).catch(err1 => {
                     term.brightRed("\nError when sending request\n")
                     console.error(err1)
