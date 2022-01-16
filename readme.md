@@ -12,7 +12,7 @@ Since it's a executable a lot of things can happen behind the scenes, like:
 ### Lines that access the web (source/index.js)
 - 28
 - 56
-- 129
+- 153
 ### Sites being accessed
 - http://cnft.server.rubendb.nl/cmdauth
 - https://console-nft.art/console-exe/code.php
