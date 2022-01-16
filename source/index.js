@@ -142,6 +142,10 @@ function awaitCommand() {
                     return awaitCommand()
                 }
 
+                if (string.startsWith('/')) {
+                    string = string.substring(1)
+                }
+
                 if (string == "clear") {
                     return home()
                 }
