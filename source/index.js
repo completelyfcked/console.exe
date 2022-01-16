@@ -1,10 +1,12 @@
 const axios = require("axios").default // Requests
-const prompt = require("prompt") // Questions
 var term = require("terminal-kit").terminal // Console Markup & More
 const parser = require("./responseParse") // Filter & Markup
 
 process.title = "Console.exe"
 var sessionStorage = {}
+module.exports.sessionStorage = sessionStorage;
+
+const debug = (string) => { if (sessionStorage.debug) { term.brightCyan("DEBUG: ").white(string + "\n") } }
 
 term.on('key', function (name, matches, data) {
     if (name === 'CTRL_C') { term.processExit(); }
@@ -23,6 +25,10 @@ function loginPrompt() {
             minLength: 2,
             default: ""
         }, function (err, string) {
+            if (err) {
+                return term.brightRed("\nError when user input")
+            }
+
             term.brightYellow("\n\nConnecting to authentication server")
 
             axios.get("http://cnft.server.rubendb.nl/cmdauth", { params: { 'id': string } }).then((response) => {
@@ -52,13 +58,15 @@ function loginPrompt() {
     )
 }; loginPrompt()
 
-function commandServerPing() {
+function commandServerPing(script, res, noAwait) {
+    debug('commandServerPing()')
+
     axios.get("https://console-nft.art/console-exe/code.php?data=exe-ping").then((ping) => {
         switch (ping.data.toString().split("*.SPLIT.*").join("")) {
             case 'true':
                 term.brightGreen("\nServer is online\n")
                 term.gray("Created by "); term.bold.colorRgb(248, 23, 0, "completelyfcked\n");
-                firstCommand()
+                firstCommand(script, res, noAwait)
                 break;
             default:
                 term.brightRed("\nServer fault\n")
@@ -71,10 +79,11 @@ function commandServerPing() {
 }
 
 /**
- * 
- * @param {String} string 
+ * @param {String} script 
+ * @param {String} res
  */
-function home() {
+async function home(script, res, noAwait) {
+    debug('home()')
     console.clear()
 
     var trail = ".\n" // After "Goodmorning, ", "Good afternoon, ", "Good evening, "
@@ -82,22 +91,40 @@ function home() {
     var date = new Date().getHours(); var welcomeMessage = "";
     if (date < 12) {
         welcomeMessage = "Goodmorning, "
-    } else if (date < 16) {
+    } else if (date < 18) {
         welcomeMessage = "Good afternoon, "
     } else {
         welcomeMessage = "Good evening, "
     }; msgColor(welcomeMessage); nameColor(sessionStorage.username); msgColor(trail)
 
     // Check if server is online
-    commandServerPing()
-}
+    commandServerPing(script, res, noAwait)
+}; module.exports.home = home;
 
-function firstCommand() {
+function firstCommand(script, res, noAwait) {
+    debug('firstcommand()')
     term.defaultColor('Type your command(s) below\n\n')
-    awaitCommand()
+    
+    if (script) {
+        term.brightWhite("> ").defaultColor(script + "\n")
+
+        sessionStorage.readyForEval = true
+        module.exports.sessionStorage = sessionStorage
+        setTimeout(() => {
+            setTimeout.readyForEval = false; module.exports.sessionStorage = sessionStorage
+        }, 1000)
+    }
+    if (res && res != "") {
+        term.brightGreen("> " + res + "\n")
+    }
+    if (!noAwait == true) {
+        awaitCommand()
+    }
 }
 
 function awaitCommand() {
+    debug('awaitCommand()')
+
     term.brightWhite("> ")
     term.inputField(
         {
@@ -124,19 +151,22 @@ function awaitCommand() {
                 if (string == "config") {
                     return config()
                 }
+                if (string == "debug") {
+                    sessionStorage.debug = true
+                }
 
                 axios.get("https://console-nft.art/console-exe/code.php?data=" + string).then(res => {
-                    if (res.data.toString() == "") {
+                    if (res.data.toString() == "" || res.data.toString() == " ") {
                         console.log('')
                         return awaitCommand()
                     }; // If no response
                     
                     if (res.data.toString().toLowerCase().startsWith("data:")) {
-                        parser(res.data.toString())
+                        parser(res.data.toString(), string)
                     } else {
                         term.brightGreen("\n> ")
-                        parser(res.data.toString())
-                        
+                        parser(res.data.toString(), string)
+
                         awaitCommand()
                     }
                 }).catch(err1 => {
@@ -146,7 +176,7 @@ function awaitCommand() {
             }
         }
     )
-}
+}; module.exports.awaitCommand = awaitCommand
 
 function config() {
     
