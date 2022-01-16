@@ -16,7 +16,7 @@ We have made all requests to the outside obvious
 - http://cnft.server.rubendb.nl
 
 ## Building
-- Only tested on Node v16
+Only tested on NodeJS v16.*
 ### Steps
 - Have [pkg](https://www.npmjs.com/package/pkg) openly installed (`npm i -g pkg`)
 - Install the dependencies by running `npm i` in the 'source' folder
