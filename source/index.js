@@ -25,7 +25,6 @@ function loginPrompt() {
         }, function (err, string) {
             term.brightYellow("\n\nConnecting to authentication server")
 
-            // REQUEST
             axios.get("http://cnft.server.rubendb.nl/cmdauth", { params: { 'id': string } }).then((response) => {
                 if (response.status != 200) {
                     term.brightRed("\nConnection to authentication server failed\n")
