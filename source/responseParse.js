@@ -10,26 +10,7 @@ module.exports = async function parse(string, command) {
         var split = string.split("*.SPLIT.*")
         split = split.filter(f => f != '')
 
-        //var nodes = html.parse(text).childNodes[0].childNodes.filter(f => f.nodeName == 'body')[0].childNodes
-        // split.forEach(text => {
-        //     var result = ""
-        //     var nodes = html.parse(text).childNodes[0].childNodes.filter(f => f.nodeName == 'body')[0].childNodes
-            
-        //     nodes.forEach(node => {
-        //         if (node.nodeName == "#text") {
-        //             result = result + node.value + "\n"
-        //         }
-        //         if (node.nodeName == "a") {
-        //             result = result + term.brightCyan(node.attrs.find(f => f.name == "href").value) + "\n"
-        //         }
-        //     })
-
-        //     term.brightGreen(result)
-        // })
-
         if (split.join(" ").toLowerCase().startsWith("data:")) {
-            term.hideCursor()
-
             console.clear()
 
             for (var i = 0; i < ((process.stdout.rows / 2) - 1); i++) {
@@ -38,9 +19,6 @@ module.exports = async function parse(string, command) {
 
             //console.log(split.join(" ").split("data:").join("").substring(1))
             console.log(split.join(" ").split("data:").join("")) //* substring removes the first character if there is no space after 'data:'
-
-            // Line 43 likes to end the string with a ">" for no reason lol
-            //term.white(split.join(" ").substring(1).split("data:").join(""))
         } else if (split.join(" ").toLowerCase().startsWith("script:")) {
             //! Script Parser
             var string = split.join(" ").split("script:").join("")

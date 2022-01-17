@@ -3,19 +3,17 @@ If you know how to horizontally center text in process.stdout, please send me a 
 ## Installation
 [Linux](https://github.com/completelyfcked/console.exe/releases/latest/download/linux) - [MacOS](https://github.com/completelyfcked/console.exe/releases/latest/download/mac) - [Windows](https://github.com/completelyfcked/console.exe/releases/latest/download/win.exe)
 
-## Why is it open source?
+## Security
+### Why is it open source?
 Since it's a executable a lot of things can happen behind the scenes, like:
 - Cookie logger
 - Password stealer
 - IP logger
-
-### Lines that access the web (source/index.js)
-- 28
-- 56
-- 153
 ### Sites being accessed
 - http://cnft.server.rubendb.nl/cmdauth
 - https://console-nft.art/console-exe/code.php
+### Modefied Dependencies
+- []`quick.db`](https://www.npmjs.com/package/quick.db) src/index.js:7 'json.sqlite' --> 'console-exe.sqlite'
 
 ## Building
 Only tested on NodeJS v16.*

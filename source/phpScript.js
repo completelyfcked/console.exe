@@ -39,22 +39,29 @@ module.exports = async function (string, command) {
                 return term.brightRed("\nError when user input")
             }
 
+            async function awaitCommand() { require("./index").awaitCommand(); }
+
             if (res) {
                 console.clear()
                 require("./index").home(command, "", true)
 
                 try {
                     var yes = false;
-                    var intv = setInterval(() => {
+                    var intv = setInterval(async function() {
                         if (yes == true) return clearInterval(intv);
 
                         if (require("./index").sessionStorage.readyForEval == true) {
-                            yes = true; clearInterval(intv)
+                            if (exec.includes("awaitCommand()")) {
+                                yes = true; clearInterval(intv)
 
-                            eval(exec)
+                                await eval(exec)
+                            } else {
+                                yes = true; clearInterval(intv)
 
-                            //require("./index").awaitCommand()
-                            term.brightWhite("> ")
+                                await eval(exec)
+
+                                awaitCommand()
+                            }
                         }
                     }, 100)
                 } catch (err1) {

@@ -1,6 +1,6 @@
 {
   "name": "console.exe",
-  "version": "1.0.2-extra",
+  "version": "1.0.3",
   "description": "A speciality to Console NFT",
   "main": "index.js",
   "bin": "./index.js",
@@ -11,10 +11,14 @@
   "license": "Apache-2.0",
   "dependencies": {
     "axios": "^0.24.0",
+    "quick.db": "^7.1.3",
     "terminal-kit": "^2.3.0"
   },
   "pkg": {
-    "assets": "node_modules/terminal-kit/**/*",
+    "assets": [
+      "node_modules/terminal-kit/**/*",
+      "node_modules/better-sqlite3/**/*"
+    ],
     "targets": [
       "node16-linux-x64",
       "node16-macos-x64",
